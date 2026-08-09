@@ -1,1 +1,54 @@
+site_name: Prashant Gore
+site_description: Executive insights on Pharmacovigilance, AI, Business Analysis and Digital Transformation
+site_author: Prashant Gore
+site_url: https://prashantrgore.github.io
 
+theme:
+  name: material
+  language: en
+
+  palette:
+    - scheme: default
+      primary: white
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    - scheme: slate
+      primary: black
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.sections
+    - navigation.expand
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Consulting Briefs: consulting-briefs/README.md
+  - Frameworks: frameworks/README.md
+  - Projects: projects/README.md
+  - About: about/README.md
+  - Contact: contact/README.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - tables
+  - attr_list
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+
+extra_css:
+  - assets/stylesheets/extra.css
