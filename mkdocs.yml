@@ -1,5 +1,5 @@
 site_name: Prashant Gore
-site_description: Executive insights on Pharmacovigilance, AI, Business Analysis and Digital Transformation
+site_description: Personal insights, frameworks and AI projects exploring digital transformation in Pharmacovigilance and Life Sciences
 site_author: Prashant Gore
 site_url: https://prashantrgore.github.io
 
@@ -32,9 +32,9 @@ theme:
 
 nav:
   - Home: index.md
-  - Consulting Briefs:
+  - Consulting Notes:
     - Overview: consulting-briefs/README.md
-    - "Brief #001 — Stop Paving the Cow Path": consulting-briefs/brief-001.md
+    - "Note #001 — Stop Paving the Cow Path": consulting-briefs/brief-001.md
   - Frameworks: frameworks/README.md
   - Projects: projects/README.md
   - About: about/README.md

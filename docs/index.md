@@ -6,18 +6,18 @@ hide:
 <div class="hero" markdown>
 
 <div class="hero-label" markdown>
-DIGITAL INSIGHTS PLATFORM
+PERSONAL INSIGHTS & PROJECTS
 </div>
 
 # Prashant Gore
 
-## Life Sciences Digital Transformation
+## Insights on Life Sciences Digital Transformation
 
-Helping Life Sciences organizations modernize **Pharmacovigilance** through **Artificial Intelligence**, **Business Analysis**, and **Digital Transformation**.
+Exploring how **Artificial Intelligence**, **Business Analysis**, and **Digital Transformation** can reshape Pharmacovigilance and Life Sciences.
 
 <div class="hero-buttons" markdown>
 
-[Read Latest Brief](consulting-briefs/README.md){ .md-button .md-button--primary }
+[Read Latest Note](consulting-briefs/README.md){ .md-button .md-button--primary }
 [View Projects](projects/README.md){ .md-button }
 
 </div>
@@ -32,9 +32,9 @@ Helping Life Sciences organizations modernize **Pharmacovigilance** through **Ar
 
 <div class="feature-card" markdown>
 
-### 📘 Consulting Briefs
+### 📘 Consulting Notes
 
-Executive insights, transformation strategies, and implementation playbooks for Life Sciences organizations.
+My practical perspectives and observations on digital transformation, business analysis, AI adoption, and Pharmacovigilance.
 
 </div>
 
@@ -42,7 +42,7 @@ Executive insights, transformation strategies, and implementation playbooks for 
 
 ### 🧩 Frameworks
 
-Reusable business analysis and AI governance frameworks for regulated environments.
+Conceptual frameworks and working models developed from my observations of Life Sciences, Pharmacovigilance, and AI adoption.
 
 </div>
 
@@ -50,7 +50,7 @@ Reusable business analysis and AI governance frameworks for regulated environmen
 
 ### 💻 AI Projects
 
-Real-world AI solutions, proof-of-concepts, and automation initiatives for Pharmacovigilance.
+Personal AI projects, proof-of-concepts, and experiments exploring potential applications in Pharmacovigilance.
 
 </div>
 
@@ -58,12 +58,12 @@ Real-world AI solutions, proof-of-concepts, and automation initiatives for Pharm
 
 ---
 
-!!! success "Latest Consulting Brief"
+!!! info "My Latest Insight"
 
-    **Consulting Brief #001**
+    **Consulting Note #001**
 
     **Stop Paving the Cow Path**
 
-    Why digital transformation initiatives fail before technology is even selected.
+    Why I believe digital transformation can fail before technology is even selected.
 
-    [Read Now →](consulting-briefs/README.md)
+    [Read Now →](consulting-briefs/brief-001.md)

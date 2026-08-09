@@ -5,7 +5,10 @@ hide:
 
 # Frameworks
 
-Proprietary consulting frameworks developed from 11+ years of pharmacovigilance practice and applied AI implementation. Each framework is designed to be immediately actionable in Life Sciences organizations.
+Conceptual frameworks and working models I have developed from my observations of Life Sciences, Pharmacovigilance, and AI adoption in regulated environments.
+
+!!! note "Important framing"
+    These are my personal working frameworks — tools I use to think about and discuss complex problems in PV digital transformation. They are not regulatory guidance, validated industry standards, or formal compliance frameworks. Where I describe what organisations "should" do, I mean it as my professional opinion, not as a mandate.
 
 ---
 
@@ -15,9 +18,9 @@ Proprietary consulting frameworks developed from 11+ years of pharmacovigilance 
 
 ### 1. Digital PV Transformation Framework™
 
-**The master architecture for pharmacovigilance digital transformation**
+**My proposed architecture for approaching pharmacovigilance digital transformation**
 
-A sequential, phase-gated framework that enforces business architecture before technology selection. Prevents the most common failure mode in PV transformation — digitizing broken processes rather than re-engineering them.
+A sequential, phase-gated model that I believe should enforce business architecture before technology selection — to help prevent the most common failure mode I observe in PV transformation: digitizing broken processes rather than re-engineering them.
 
 ```
 BUSINESS PROBLEM
@@ -35,7 +38,7 @@ PREDICT      →  Predictive Operating Model™
 CONTINUOUS GOVERNANCE
 ```
 
-**When to apply:** At the initiation of any safety database migration, AI implementation, or PV operating model redesign — before any vendor is engaged.
+**When I think it applies:** At the initiation of any safety database migration, AI implementation, or PV operating model redesign — before any vendor is engaged.
 
 </div>
 
@@ -45,16 +48,16 @@ CONTINUOUS GOVERNANCE
 
 ### 2. Process Integrity Model™
 
-**Root cause diagnosis for transformation failure**
+**A diagnostic for exploring root causes of transformation failure**
 
-A structured diagnostic that identifies the two systemic root causes of PV digital transformation failure: strategic ambiguity ("cow path" syndrome) and the absence of unified Master Data Management governance. Applied during the Transformation Discovery Sprint™ to prevent carrying legacy dysfunction into the new architecture.
+A structured diagnostic model I developed to identify two systemic patterns I observe in PV digital transformation failure: strategic ambiguity ("cow path" syndrome) and the absence of unified Master Data Management governance.
 
-| Root Cause | Symptom | Intervention |
+| Pattern | Symptom | Proposed Intervention |
 |---|---|---|
 | **Strategic Ambiguity** | Requirements mirror the current legacy system | Enterprise Process Pruning Method™ — strip every process step that does not support a Critical to Quality factor or regulatory mandate |
 | **Absent MDM Governance** | Multiple conflicting product dictionaries, duplicate patient records, inconsistent coding | Establish a single source of truth for all master data before safety database go-live |
 
-**When to apply:** Requirements gathering phase of any PV system implementation.
+**When I think it applies:** Requirements gathering phase of any PV system implementation.
 
 </div>
 
@@ -64,18 +67,18 @@ A structured diagnostic that identifies the two systemic root causes of PV digit
 
 ### 3. The Automation Continuum™
 
-**Matching automation technology to task risk profile**
+**A tiered model for matching automation technology to task complexity**
 
-A tiered automation deployment model that prevents organizations from over-engineering low-risk tasks with AI or under-automating high-volume deterministic work with manual effort. Each tier maps to a specific PV function and regulatory control requirement.
+A conceptual model intended to help avoid over-engineering low-risk tasks with AI, or under-automating high-volume deterministic work. Each tier maps to a PV function and its associated validation considerations.
 
-| Tier | Technology | PV Application | Control Focus |
+| Tier | Technology | PV Application | Control Consideration |
 |---|---|---|---|
 | **Tier 1** | Rule-Based RPA | E2B gateway submission, structured data entry, duplicate detection | Process mapping, exception handling logs |
 | **Tier 2** | Cognitive AI / NLP / OCR | Case intake from unstructured sources, literature screening, foreign language translation | OCR accuracy validation, translation confidence thresholds |
 | **Tier 3** | Predictive ML | Signal detection, causality scoring, risk stratification | Algorithmic bias monitoring, model drift detection |
 | **Tier 4** | Generative AI | PSUR/PBRER narrative drafting, aggregate report sections | Source traceability, human-in-the-loop medical review |
 
-**When to apply:** Technology selection and validation planning phases.
+**When I think it applies:** Technology selection and validation planning phases.
 
 </div>
 
@@ -85,23 +88,25 @@ A tiered automation deployment model that prevents organizations from over-engin
 
 ### 4. AI-Native PV Architecture Canvas™
 
-**Blueprint for building pharmacovigilance on AI-first principles**
+**A two-phase model for approaching AI-first PV architecture**
 
-A two-phase framework that decouples strategic objectives from legacy habits. Forces the organization to prune processes before designing architecture, then deploy automation at the correct tier of the Automation Continuum™.
+A conceptual approach that separates process pruning from architecture design — attempting to decouple strategic objectives from legacy habits before any automation is deployed.
 
 **Phase 1 — Enterprise Process Pruning Method™**
 
-Before drafting a single User Requirement Specification, map every PV process and apply aggressive pruning using Lean Six Sigma and Quality by Design principles. Eliminate any process step that does not directly support:
+Before drafting a User Requirement Specification, I suggest mapping every PV process and applying pruning using Lean Six Sigma and Quality by Design principles. The question I recommend asking of every process step:
 
-- A Critical to Quality factor
-- A strict regulatory mandate
-- A patient safety outcome
+- Does it directly support a Critical to Quality factor?
+- Does it meet a strict regulatory mandate?
+- Does it directly contribute to a patient safety outcome?
+
+If the answer to all three is no, it is a candidate for elimination.
 
 **Phase 2 — Automation Continuum™ Deployment**
 
-After pruning, match each remaining process to the correct automation tier. Deploying Generative AI on a task suited for RPA wastes budget and introduces unnecessary validation complexity. Deploying RPA on a task requiring contextual judgment creates compliance risk.
+After pruning, match each remaining process to the appropriate automation tier. Mismatching the technology to the task complexity is, in my observation, one of the most common and costly mistakes in PV technology implementation.
 
-**When to apply:** Architecture design phase, prior to writing URS or SOW documents.
+**When I think it applies:** Architecture design phase, prior to writing URS or SOW documents.
 
 </div>
 
@@ -111,9 +116,9 @@ After pruning, match each remaining process to the correct automation tier. Depl
 
 ### 5. Transformation Readiness Canvas™
 
-**Pre-vendor diagnostic for PV digital transformation**
+**A pre-vendor diagnostic tool I use during transformation discovery**
 
-A structured assessment artifact used during the Transformation Discovery Sprint™ to evaluate legacy processes against the Target Operating Model before any software vendor is engaged. Prevents organizations from entering vendor negotiations without a defensible, re-engineered process baseline.
+A structured assessment intended to evaluate legacy processes against a proposed Target Operating Model before any software vendor is engaged. The goal is to prevent organisations from entering vendor negotiations without a defensible, re-engineered process baseline.
 
 | PV Domain | Assess Current State | Define Target State | Map Automation Tier | Define GxP Controls |
 |---|---|---|---|---|
@@ -124,7 +129,7 @@ A structured assessment artifact used during the Transformation Discovery Sprint
 | Regulatory Submissions | ☐ | ☐ | ☐ | ☐ |
 | Literature Surveillance | ☐ | ☐ | ☐ | ☐ |
 
-**When to apply:** 60-day window before formal vendor RFP distribution.
+**When I think it applies:** The 60-day window before formal vendor RFP distribution.
 
 </div>
 
@@ -134,11 +139,11 @@ A structured assessment artifact used during the Transformation Discovery Sprint
 
 ### 6. Predictive Operating Model™
 
-**The target state for AI-native pharmacovigilance**
+**My conceptual target state for a mature, AI-native PV operation**
 
-Defines what a mature, fully transformed PV operation looks like — where AI models ingest real-time data streams (EHR, connected device telemetry, global regulatory intelligence) to forecast safety signals before they manifest as confirmed public health threats.
+A model describing what I believe a well-transformed PV operation could look like — where AI models ingest real-time data streams to help forecast safety signals earlier than traditional retrospective methods allow.
 
-**Maturity progression:**
+**Maturity progression I propose:**
 
 | Level | Label | Defining Characteristic |
 |---|---|---|
@@ -148,14 +153,13 @@ Defines what a mature, fully transformed PV operation looks like — where AI mo
 | 4 | **Digital** | Touchless case processing; API-first; AI governance in place |
 | 5 | **Predictive** | Agentic AI; real-time signal forecasting; continuous GVP compliance |
 
-**Target:** Organizations should define a credible 3-year roadmap from their current maturity level to Level 4 or 5.
+In my view, organisations should define a credible 3-year roadmap from their current maturity level toward Level 4 or 5 as a reasonable medium-term ambition.
 
 </div>
 
 ---
 
 !!! info "Applying These Frameworks"
-    These frameworks are applied through structured consulting engagements — typically initiated with a **Transformation Discovery Sprint™** (60–90 days) to assess current state and define the Target Operating Model.
+    These frameworks are conceptual starting points for discussion and exploration, not prescriptive playbooks. I am happy to discuss how they might be adapted to specific contexts.
 
     [Get in Touch →](../contact/README.md){ .md-button .md-button--primary }
-

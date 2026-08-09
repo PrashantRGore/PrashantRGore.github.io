@@ -3,9 +3,12 @@ hide:
   - toc
 ---
 
-# Consulting Briefs
+# Consulting Notes
 
-Executive insights on Pharmacovigilance digital transformation, AI strategy, and operating model design for Life Sciences organizations.
+My practical perspectives and observations on digital transformation in Pharmacovigilance and Life Sciences — drawing on 11+ years of PV domain experience and applied AI experimentation.
+
+!!! note "A note on framing"
+    The ideas and perspectives shared here are my own. They reflect my professional observations, working hypotheses, and ongoing learning — not regulatory guidance, validated industry standards, or the practices of any organization I have worked for or with.
 
 ---
 
@@ -13,15 +16,15 @@ Executive insights on Pharmacovigilance digital transformation, AI strategy, and
 
 <div class="brief-card" markdown>
 
-**Brief #001** · August 2026
+**Note #001** · August 2026
 
 ### [Stop Paving the Cow Path](brief-001.md)
 
-Why most pharmacovigilance transformation programs fail before vendor selection — and the AI-native architecture that fixes it.
+Why I believe most pharmacovigilance transformation programs fail before vendor selection — and the AI-native architecture I think could address it.
 
 **Topics:** Digital Transformation · AI Strategy · PV Operating Model
 
-[Read Brief →](brief-001.md){ .md-button .md-button--primary }
+[Read Note →](brief-001.md){ .md-button .md-button--primary }
 
 </div>
 
@@ -29,5 +32,5 @@ Why most pharmacovigilance transformation programs fail before vendor selection 
 
 ---
 
-!!! info "New briefs publish monthly"
-    Each brief is a practitioner-authored, evidence-based analysis drawn from real transformation engagements in Life Sciences pharmacovigilance.
+!!! info "New notes publish monthly"
+    Each note is a practitioner-authored perspective drawn from my observations of digital transformation in Life Sciences pharmacovigilance.

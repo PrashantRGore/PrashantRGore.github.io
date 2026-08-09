@@ -5,29 +5,29 @@ hide:
 
 # AI Projects
 
-Applied AI and ML solutions for pharmacovigilance — built in Python, validated against real PV domain knowledge.
+Personal AI projects, proof-of-concepts, and experiments exploring potential applications in Pharmacovigilance and Life Sciences.
 
 !!! warning "Research Disclaimer"
-    These projects are educational and portfolio prototypes demonstrating AI concepts in pharmacovigilance. They are **not validated for production or clinical use**.
+    These are personal portfolio projects built to explore and demonstrate AI concepts in pharmacovigilance. They are **not validated for production or clinical use** and should not be interpreted as deployable systems. Results reported reflect experimental performance on my evaluation datasets — not evidence of production effectiveness.
 
 ---
 
-## Featured Projects
+## Projects
 
 <div class="project-card" markdown>
 
 ### 🤖 MLM Triage Agent
 
-**Agentic RAG pipeline for automating Medical Literature Monitoring triage**
+**Exploring agentic RAG for Medical Literature Monitoring triage automation**
 
-An agentic Retrieval-Augmented Generation (RAG) pipeline that automates the triage of medical literature for pharmacovigilance relevance — one of the most time-intensive manual activities in PV operations. The system ingests scientific publications, evaluates them for adverse event relevance, and routes outputs for human review.
+A proof-of-concept agentic Retrieval-Augmented Generation (RAG) pipeline that explores how medical literature triage for pharmacovigilance relevance could potentially be automated. The system ingests scientific publications, evaluates them for adverse event relevance, and routes outputs for human review. Built to examine whether agentic AI architectures could meaningfully reduce the manual burden of MLM screening.
 
 | Detail | Value |
 |---|---|
 | **Language** | Python / Jupyter Notebook |
 | **Core Technology** | RAG · Agentic AI · NLP |
 | **PV Domain** | Literature Surveillance / MLM |
-| **Status** | Active |
+| **Type** | Proof-of-Concept |
 
 [View on GitHub →](https://github.com/PrashantRGore/mlm-triage-agent){ .md-button .md-button--primary }
 
@@ -39,16 +39,17 @@ An agentic Retrieval-Augmented Generation (RAG) pipeline that automates the tria
 
 ### 💊 Drug Causality BERT
 
-**Automated causality assessment and PBRER Section 11 report generation**
+**Experimenting with automated causality assessment and PBRER Section 11 drafting**
 
-Fine-tuned BERT model that determines the causality relationship between a drug and adverse event, then generates an automated causality assessment report including a PBRER Section 11 narrative — replacing one of the most subjective and time-consuming steps in ICSR processing.
+A fine-tuned BERT model that explores automated determination of causality between a drug and adverse event, with an attempt at generating a PBRER Section 11 narrative. Built to investigate whether transformer-based NLP could assist with one of the most subjective and time-consuming steps in ICSR processing. Results are experimental and not validated for clinical or regulatory use.
 
 | Detail | Value |
 |---|---|
 | **Language** | Python |
 | **Core Technology** | BERT · NLP · Transformers |
 | **PV Domain** | ICSR Processing · Causality Assessment |
-| **Output** | PBRER Section 11 Report |
+| **Output** | Experimental PBRER Section 11 draft |
+| **Type** | Proof-of-Concept |
 
 [View on GitHub →](https://github.com/PrashantRGore/drug-causality-bert){ .md-button .md-button--primary }
 
@@ -60,16 +61,17 @@ Fine-tuned BERT model that determines the causality relationship between a drug 
 
 ### 💊 Drug Causality BERT v2
 
-**Enhanced causality assessment with full PBRER Section 11 Summary report**
+**Second iteration with extended PBRER Section 11 Summary generation**
 
-Second-generation version of the causality model with improved event-drug relationship classification and extended report generation covering the full PBRER Section 11 Summary — addressing feedback from v1 on completeness and clinical narrative quality.
+An improved version of the causality model exploring enhanced drug-event relationship classification and extended report generation covering the full PBRER Section 11 Summary. This iteration addressed limitations I observed in v1 around completeness and clinical narrative quality. All outputs remain experimental.
 
 | Detail | Value |
 |---|---|
 | **Language** | Python |
 | **Core Technology** | BERT · NLP · Transformers |
 | **PV Domain** | ICSR Processing · Aggregate Reporting |
-| **Output** | Full PBRER Section 11 Summary |
+| **Output** | Experimental PBRER Section 11 Summary draft |
+| **Type** | Proof-of-Concept |
 
 [View on GitHub →](https://github.com/PrashantRGore/drug-causality-bert-v2){ .md-button .md-button--primary }
 
@@ -81,16 +83,17 @@ Second-generation version of the causality model with improved event-drug relati
 
 ### 📡 PV Signal ML
 
-**Pharmacovigilance signal detection with ML-based triage and compliance concepts**
+**Exploring ML-augmented pharmacovigilance signal detection**
 
-Research prototype demonstrating pharmacovigilance signal detection algorithms including disproportionality analysis, ML-based case triage, and regulatory compliance concepts aligned with ICH E2E and GVP Module IX. Designed to demonstrate how statistical signal detection can be augmented with machine learning.
+A research prototype exploring pharmacovigilance signal detection algorithms including disproportionality analysis, ML-based case triage, and regulatory compliance concepts aligned with ICH E2E and GVP Module IX. Built to investigate whether machine learning could complement traditional statistical signal detection methods. Educational and portfolio project only — not validated for production use.
 
 | Detail | Value |
 |---|---|
 | **Language** | Python |
 | **Core Technology** | ML · Statistical Signal Detection · NLP |
 | **PV Domain** | Signal Detection · Regulatory Compliance |
-| **Regulatory Alignment** | ICH E2E · GVP Module IX |
+| **Regulatory Alignment** | Concepts aligned with ICH E2E · GVP Module IX |
+| **Type** | Research Prototype |
 
 [View on GitHub →](https://github.com/PrashantRGore/PV_Signal_ML){ .md-button .md-button--primary }
 

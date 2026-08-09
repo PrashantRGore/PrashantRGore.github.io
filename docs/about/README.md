@@ -9,15 +9,15 @@ hide:
 
 **Life Sciences Digital Transformation | Pharmacovigilance | AI | Business Analysis**
 
-Prashant Gore is a pharmacovigilance professional with over **11 years of experience** spanning PV operations, training and quality review, and PV technology. Currently serving as **Team Lead, Literature Surveillance** at Cognizant Technology Solutions, based in Navi Mumbai, India.
+I am a pharmacovigilance professional with over **11 years of experience** spanning PV operations, training and quality review, and PV technology. Currently serving as **Team Lead, Literature Surveillance** at Cognizant Technology Solutions, based in Navi Mumbai, India.
 
-His work sits at the intersection of deep PV domain expertise and applied AI — building the technical infrastructure that helps Life Sciences organizations move from reactive compliance to predictive patient safety.
+My interest sits at the intersection of deep PV domain expertise and applied AI — exploring how emerging technology might help Life Sciences organizations move toward more proactive, data-driven approaches to patient safety.
 
 </div>
 
 ---
 
-## What I Do
+## What I Work On
 
 <div class="feature-grid" markdown>
 
@@ -31,17 +31,17 @@ His work sits at the intersection of deep PV domain expertise and applied AI —
 
 <div class="feature-card" markdown>
 
-### 🤖 AI & Automation in PV
+### 🤖 AI Experimentation in PV
 
-Actively building ML/NLP solutions for pharmacovigilance — signal detection, drug causality classification, and literature screening automation. Maintains a GitHub portfolio of applied AI projects in drug safety.
+Building personal ML/NLP proof-of-concepts in pharmacovigilance — exploring signal detection, drug causality classification, and literature screening automation. All projects are experimental and maintained on GitHub.
 
 </div>
 
 <div class="feature-card" markdown>
 
-### 📊 PV Technology & Digital Safety
+### 📊 PV Technology & Digital Transformation
 
-Focus on introducing AI and automation into pharmacovigilance operations — deepening the domain technologically rather than pivoting away from it. Experienced in PV system architecture and digital transformation strategy.
+Exploring how AI and automation might be introduced into pharmacovigilance operations. My focus is on understanding both the domain and the technology — not just one or the other.
 
 </div>
 
@@ -77,7 +77,16 @@ Guest speaker at pharmacy institutions on pharmacovigilance, AI in drug safety, 
 
 ## GitHub
 
-Open-source ML/NLP projects in pharmacovigilance signal detection and drug causality classification:
+Personal ML/NLP experiments in pharmacovigilance signal detection and drug causality classification:
 
 [View GitHub Portfolio →](https://github.com/PrashantRGore){ .md-button .md-button--primary }
 
+---
+
+## About This Site
+
+This is my personal space for exploring the intersection of Life Sciences, Pharmacovigilance, Artificial Intelligence, Business Analysis, and Digital Transformation.
+
+The ideas, frameworks, observations, and models presented here represent my own perspectives and ongoing learning. Some are based on professional experience, while others are exploratory concepts, experiments, or proof-of-concepts that I have developed to examine how emerging technologies could be applied to real-world Life Sciences problems.
+
+These materials are intended for learning, discussion, and professional exploration. They should not be interpreted as regulatory guidance, validated industry standards, or representations of the practices of any organization.

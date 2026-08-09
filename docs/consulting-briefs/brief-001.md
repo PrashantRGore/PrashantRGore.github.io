@@ -12,6 +12,14 @@ description: Why most pharmacovigilance transformation programs fail before vend
 
 ---
 
+!!! note "About this note"
+    This is a personal consulting note representing my own perspectives, working hypotheses, and professional observations. The frameworks, models, and recommendations presented here are conceptual tools I have developed to explore how digital transformation could be approached in pharmacovigilance — not validated industry standards, formal regulatory guidance, or representations of the practices of any organization. The statistics cited are drawn from publicly available sources and should be independently verified.
+
+---
+
+
+---
+
 ## Executive Dashboard
 
 | Metric | Status |
