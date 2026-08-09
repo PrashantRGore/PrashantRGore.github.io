@@ -32,7 +32,9 @@ theme:
 
 nav:
   - Home: index.md
-  - Consulting Briefs: consulting-briefs/README.md
+  - Consulting Briefs:
+    - Overview: consulting-briefs/README.md
+    - "Brief #001 — Stop Paving the Cow Path": consulting-briefs/brief-001.md
   - Frameworks: frameworks/README.md
   - Projects: projects/README.md
   - About: about/README.md

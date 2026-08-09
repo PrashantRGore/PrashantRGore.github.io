@@ -126,3 +126,43 @@
 
 /* ── Footer ────────────────────────────────────────── */
 .md-footer { display: none; }
+
+/* ── Consulting brief cards ─────────────────────────── */
+
+.brief-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 22px;
+  margin: 2rem 0;
+}
+
+.brief-card {
+  border: 1px solid rgba(41,121,255,0.25);
+  border-radius: 12px;
+  padding: 28px;
+  background: rgba(41,121,255,0.05);
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.brief-card:hover {
+  border-color: var(--brand);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(41,121,255,0.12);
+}
+
+.brief-card strong {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+/* ── About hero ─────────────────────────────────────── */
+
+.about-hero {
+  padding: 2rem;
+  border-left: 3px solid var(--brand);
+  margin-bottom: 2rem;
+  background: rgba(41,121,255,0.04);
+  border-radius: 0 8px 8px 0;
+}
