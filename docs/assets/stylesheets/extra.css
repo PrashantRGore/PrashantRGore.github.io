@@ -1,79 +1,128 @@
 /* =====================================================
-   Executive Consulting Theme
+   Prashant Gore – Professional Dark Blue Theme
    ===================================================== */
 
-:root{
-    --primary:#0B2545;
-    --secondary:#1D7F7A;
-    --background:#F8F9FB;
-    --card:#FFFFFF;
-    --border:#E5E7EB;
+:root {
+  --brand:        #2979FF;   /* vivid blue  */
+  --brand-dim:    #1565C0;   /* deeper blue */
+  --brand-glow:   rgba(41,121,255,0.18);
 }
 
-/* Hero */
+/* ── Hero block ─────────────────────────────────────── */
 
-.hero{
-    padding:60px 0 40px 0;
+.hero {
+  padding: 72px 32px 56px;
+  text-align: center;
+  background: linear-gradient(145deg, #0d1117 0%, #0d1b3e 60%, #111827 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(41,121,255,0.25);
+  margin-bottom: 2.5rem;
+  box-shadow: 0 0 60px rgba(41,121,255,0.08);
 }
 
-.hero-label{
-    display:inline-block;
-    padding:6px 12px;
-    font-size:.75rem;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    border:1px solid var(--border);
-    border-radius:20px;
-    color:#666;
-    margin-bottom:18px;
+.hero-label {
+  display: inline-block;
+  padding: 5px 14px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid var(--brand);
+  border-radius: 20px;
+  color: var(--brand);
+  margin-bottom: 24px;
 }
 
-.hero h1{
-    font-size:3.3rem;
-    color:var(--primary);
-    margin-bottom:10px;
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
 }
 
-.hero h2{
-    color:var(--secondary);
-    font-size:2rem;
-    margin-bottom:25px;
+.hero h2 {
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  margin: 0 0 18px;
 }
 
-.hero p{
-    font-size:1.2rem;
-    line-height:1.8;
-    max-width:850px;
+.hero p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 680px;
+  margin: 0 auto 36px;
+  color: rgba(255,255,255,0.65);
 }
 
-.hero-buttons{
-    margin-top:35px;
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
 }
 
-/* Cards */
-
-.feature-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:24px;
-    margin-top:30px;
+/* Override Material button colours inside hero */
+.hero .md-button--primary {
+  background: var(--brand) !important;
+  border-color: var(--brand) !important;
+  color: #fff !important;
 }
 
-.feature-card{
-    background:white;
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:28px;
-    transition:.25s;
+.hero .md-button--primary:hover {
+  background: var(--brand-dim) !important;
+  border-color: var(--brand-dim) !important;
 }
 
-.feature-card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+.hero .md-button:not(.md-button--primary) {
+  border-color: var(--brand) !important;
+  color: var(--brand) !important;
 }
 
-/* Footer */
-
-.md-footer{
-    display:none;
+.hero .md-button:not(.md-button--primary):hover {
+  background: var(--brand-glow) !important;
 }
+
+/* ── Feature cards ─────────────────────────────────── */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  margin: 2rem 0;
+}
+
+.feature-card {
+  border: 1px solid rgba(41,121,255,0.2);
+  border-radius: 12px;
+  padding: 28px;
+  background: rgba(41,121,255,0.04);
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.feature-card:hover {
+  border-color: var(--brand);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(41,121,255,0.15);
+}
+
+/* Light-mode overrides (when user toggles) */
+[data-md-color-scheme="default"] .hero {
+  background: linear-gradient(145deg, #e8edf8 0%, #dce6ff 60%, #eef2ff 100%);
+  border-color: rgba(21,101,192,0.3);
+}
+
+[data-md-color-scheme="default"] .hero h1 { color: #0d1b3e; }
+[data-md-color-scheme="default"] .hero h2 { color: #1565C0; }
+[data-md-color-scheme="default"] .hero p  { color: #374151; }
+[data-md-color-scheme="default"] .hero-label { color: #1565C0; border-color: #1565C0; }
+
+[data-md-color-scheme="default"] .feature-card {
+  background: #f5f7ff;
+  border-color: rgba(21,101,192,0.2);
+}
+
+/* ── Footer ────────────────────────────────────────── */
+.md-footer { display: none; }

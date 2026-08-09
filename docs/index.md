@@ -3,9 +3,9 @@ hide:
   - toc
 ---
 
-<div class="hero">
+<div class="hero" markdown>
 
-<div class="hero-label">
+<div class="hero-label" markdown>
 DIGITAL INSIGHTS PLATFORM
 </div>
 
@@ -15,15 +15,10 @@ DIGITAL INSIGHTS PLATFORM
 
 Helping Life Sciences organizations modernize **Pharmacovigilance** through **Artificial Intelligence**, **Business Analysis**, and **Digital Transformation**.
 
-<div class="hero-buttons">
+<div class="hero-buttons" markdown>
 
-<a class="md-button md-button--primary" href="consulting-briefs/">
-Read Latest Brief
-</a>
-
-<a class="md-button" href="projects/">
-View Projects
-</a>
+[Read Latest Brief](consulting-briefs/README.md){ .md-button .md-button--primary }
+[View Projects](projects/README.md){ .md-button }
 
 </div>
 
@@ -33,9 +28,9 @@ View Projects
 
 ## What You'll Find Here
 
-<div class="feature-grid">
+<div class="feature-grid" markdown>
 
-<div class="feature-card">
+<div class="feature-card" markdown>
 
 ### 📘 Consulting Briefs
 
@@ -43,7 +38,7 @@ Executive insights, transformation strategies, and implementation playbooks for 
 
 </div>
 
-<div class="feature-card">
+<div class="feature-card" markdown>
 
 ### 🧩 Frameworks
 
@@ -51,7 +46,7 @@ Reusable business analysis and AI governance frameworks for regulated environmen
 
 </div>
 
-<div class="feature-card">
+<div class="feature-card" markdown>
 
 ### 💻 AI Projects
 
@@ -71,4 +66,4 @@ Real-world AI solutions, proof-of-concepts, and automation initiatives for Pharm
 
     Why digital transformation initiatives fail before technology is even selected.
 
-    *(Coming Soon)*
+    [Read Now →](consulting-briefs/README.md)
