@@ -9,11 +9,8 @@ hide:
 
 <div class="ba-project-header" markdown>
 <div>
-
-## ClearVision Eye Hospital
-
-### EMR & Patient Portal Digital Transformation
-
+<h2>ClearVision Eye Hospital</h2>
+<h3>EMR &amp; Patient Portal Digital Transformation</h3>
 </div>
 <div class="ba-badge-group" markdown>
 <span class="ba-badge ba-badge--sector">Healthcare / EMR</span>
