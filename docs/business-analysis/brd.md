@@ -3,13 +3,14 @@ hide:
   - toc
 ---
 
-<div class="ba-meta-bar" markdown>
-<span class="ba-badge ba-badge--id">CVH-BRD-001</span> <span class="ba-badge ba-badge--version">Version 1.3</span> <span class="ba-badge ba-badge--status">Baselined</span> <span class="ba-badge ba-badge--compliance">DPDP / HIPAA / GDPR</span>
+<div class="ba-meta-bar">
+<span class="ba-badge ba-badge--id">CVH-BRD-001</span>
+<span class="ba-badge ba-badge--version">Version 1.3</span>
+<span class="ba-badge ba-badge--status">Baselined</span>
+<span class="ba-badge ba-badge--compliance">DPDP / HIPAA / GDPR</span>
 </div>
 
 # Business Requirements Document (BRD)
-
-<div class="ba-table-scroll" markdown>
 
 |              |                                                                       |
 |--------------|-----------------------------------------------------------------------|
@@ -115,7 +116,7 @@ ClearVision Eye Hospital currently operates through manual processes and disconn
 |---------------------------|----------------------|-----------------------|--------------------------------|
 | **Benefit**               | **Baseline (As-Is)** | **Target**            | **Measurement**                |
 | Patient registration time | 20–25 minutes        | &lt; 3 minutes        | Timed UAT                      |
-| Appointment utilisation   | ~65% (manual gaps)   | ≥ 90%                 | Booking vs slot ratio          |
+| Appointment utilisation   | \~65% (manual gaps)  | ≥ 90%                 | Booking vs slot ratio          |
 | Duplicate patient records | Uncontrolled         | Zero duplicates       | Validation rule enforcement    |
 | Data access compliance    | No controls          | Full RBAC enforcement | Access audit log review        |
 | Management reporting      | Manual, ad hoc       | Automated dashboards  | Report generation verification |
@@ -658,6 +659,3 @@ ClearVision Eye Hospital is an Indian institution. The DPDP Act 2023 is the prim
 | module            | Module    | S       | MOD-01 to MOD-10                                                       | BR-REQ-IT-02      | Portal module reference       |
 | action\_timestamp | Timestamp | S       | ISO 8601 HH:MM:SS                                                      | BR-REQ-IT-02      | UTC precision                 |
 | outcome           | Outcome   | S       | Success / Failed                                                       | BR-SEC-04         | Failed logins trigger lockout |
-
-
-</div>

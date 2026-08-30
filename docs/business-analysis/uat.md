@@ -3,13 +3,14 @@ hide:
   - toc
 ---
 
-<div class="ba-meta-bar" markdown>
-<span class="ba-badge ba-badge--id">CVH-UAT-001</span> <span class="ba-badge ba-badge--version">Version 1.1</span> <span class="ba-badge ba-badge--status">Baselined</span> <span class="ba-badge ba-badge--compliance">DPDP / HIPAA / GDPR</span>
+<div class="ba-meta-bar">
+<span class="ba-badge ba-badge--id">CVH-UAT-001</span>
+<span class="ba-badge ba-badge--version">Version 1.1</span>
+<span class="ba-badge ba-badge--status">Baselined</span>
+<span class="ba-badge ba-badge--compliance">DPDP / HIPAA / GDPR</span>
 </div>
 
 # User Acceptance Testing Scripts (UAT)
-
-<div class="ba-table-scroll" markdown>
 
 |                  |                                                                                   |
 |------------------|-----------------------------------------------------------------------------------|
@@ -938,6 +939,3 @@ UAT is passed when: (1) 100% of Must Have scenarios Pass. (2) ≥80% of Should H
 | BA (Prashant Gore)        | Prashant Gore                          | July 2026              | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | ☐ Pass ☐ Fail |
 
 **END OF DOCUMENT**
-
-
-</div>

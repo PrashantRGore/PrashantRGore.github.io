@@ -3,13 +3,14 @@ hide:
   - toc
 ---
 
-<div class="ba-meta-bar" markdown>
-<span class="ba-badge ba-badge--id">CVH-FRD-001</span> <span class="ba-badge ba-badge--version">Version 1.2</span> <span class="ba-badge ba-badge--status">Baselined</span> <span class="ba-badge ba-badge--compliance">DPDP / HIPAA / GDPR</span>
+<div class="ba-meta-bar">
+<span class="ba-badge ba-badge--id">CVH-FRD-001</span>
+<span class="ba-badge ba-badge--version">Version 1.2</span>
+<span class="ba-badge ba-badge--status">Baselined</span>
+<span class="ba-badge ba-badge--compliance">DPDP / HIPAA / GDPR</span>
 </div>
 
 # Functional Requirements Document (FRD)
-
-<div class="ba-table-scroll" markdown>
 
 |                  |                                                        |
 |------------------|--------------------------------------------------------|
@@ -583,6 +584,3 @@ Six core tables. patients (1) → appointments (many) → consultations (1) → 
 | Prototype                        | CVH-DEV-001 v1.0 | Complete   |
 
 **END OF DOCUMENT**
-
-
-</div>

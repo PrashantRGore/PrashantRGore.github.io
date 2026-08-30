@@ -3,13 +3,14 @@ hide:
   - toc
 ---
 
-<div class="ba-meta-bar" markdown>
-<span class="ba-badge ba-badge--id">CVH-RTM-001</span> <span class="ba-badge ba-badge--version">Version 1.1</span> <span class="ba-badge ba-badge--status">Baselined</span> <span class="ba-badge ba-badge--compliance">DPDP / HIPAA / GDPR</span>
+<div class="ba-meta-bar">
+<span class="ba-badge ba-badge--id">CVH-RTM-001</span>
+<span class="ba-badge ba-badge--version">Version 1.1</span>
+<span class="ba-badge ba-badge--status">Baselined</span>
+<span class="ba-badge ba-badge--compliance">DPDP / HIPAA / GDPR</span>
 </div>
 
 # Requirements Traceability Matrix (RTM)
-
-<div class="ba-table-scroll" markdown>
 
 |                    |                                                                  |
 |--------------------|------------------------------------------------------------------|
@@ -156,6 +157,3 @@ This RTM provides end-to-end linkage from Business Objectives through Business R
 | Management Reporting               | O-08 → RPT-04 → FR-RPT-04 → MOD-08 → TC-RPT-004 → UAT-RPT-004              |
 
 **END OF DOCUMENT**
-
-
-</div>

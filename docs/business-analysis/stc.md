@@ -3,13 +3,14 @@ hide:
   - toc
 ---
 
-<div class="ba-meta-bar" markdown>
-<span class="ba-badge ba-badge--id">CVH-STC-001</span> <span class="ba-badge ba-badge--version">Version 1.1</span> <span class="ba-badge ba-badge--status">Baselined</span> <span class="ba-badge ba-badge--compliance">DPDP / HIPAA / GDPR</span>
+<div class="ba-meta-bar">
+<span class="ba-badge ba-badge--id">CVH-STC-001</span>
+<span class="ba-badge ba-badge--version">Version 1.1</span>
+<span class="ba-badge ba-badge--status">Baselined</span>
+<span class="ba-badge ba-badge--compliance">DPDP / HIPAA / GDPR</span>
 </div>
 
 # System Test Cases (STC)
-
-<div class="ba-table-scroll" markdown>
 
 |                  |                                                                           |
 |------------------|---------------------------------------------------------------------------|
@@ -793,6 +794,3 @@ hide:
 | Phase 6   | Test Execution Summary (CVH-TER-001) produced                   | Prashant Gore             | TBD        | Planned    |
 
 **END OF DOCUMENT**
-
-
-</div>
