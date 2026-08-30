@@ -37,8 +37,19 @@ nav:
     - "Note #001 — Stop Paving the Cow Path": consulting-briefs/brief-001.md
   - Frameworks: frameworks/README.md
   - Projects: projects/README.md
+  - BA Portfolio:
+    - Overview: business-analysis/index.md
+    - "01. BRD v1.3 — Business Requirements": business-analysis/brd.md
+    - "02. FRD v1.2 — Functional Requirements": business-analysis/frd.md
+    - "03. RTM v1.1 — Requirements Traceability": business-analysis/rtm.md
+    - "04. STC v1.1 — System Test Cases": business-analysis/stc.md
+    - "05. UAT v1.1 — User Acceptance Testing": business-analysis/uat.md
+    - "06. CR-001 v1.0 — Change Request": business-analysis/cr.md
+    - "07. ERD v1.0 — Entity Relationship Diagram": business-analysis/erd.md
+    - "08. SQD v1.1 — Sequence Diagrams": business-analysis/sqd.md
   - About: about/README.md
   - Contact: contact/README.md
+
 
 plugins:
   - search

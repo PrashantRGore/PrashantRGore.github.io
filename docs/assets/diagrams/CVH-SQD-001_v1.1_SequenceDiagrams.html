@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CVH-SQD-001 | Sequence Diagrams</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f4f7fb;margin:0;padding:20px;}
+h1{color:#1F4E79;font-size:20px;margin-bottom:2px;}
+h2{color:#2E75B6;font-size:15px;margin:28px 0 6px 0;border-bottom:2px solid #2E75B6;padding-bottom:4px;}
+.meta{font-size:12px;color:#666;margin-bottom:12px;}
+.disclaimer{font-size:11px;color:#888;margin-top:16px;font-style:italic;}
+svg{display:block;margin-bottom:8px;}
+</style>
+</head>
+<body>
+<h1>ClearVision Eye Hospital — Sequence Diagrams</h1>
+<div class="meta">CVH-SQD-001 | v1.1 | July 2026 | Prashant Gore — BA &amp; Digital Transformation Consultant | Parent: CVH-FRD-001 v1.2</div>
+
+<div style="background:#E2F0D9;border-left:4px solid #375623;padding:10px 16px;margin-bottom:8px;font-size:12px;border-radius:4px;">
+<strong style="color:#1F4E79;">Architecture Assumptions (Prototype Scope)</strong><br>
+1. All requests processed synchronously — no async queues.<br>
+2. Single application server; single SQLite database instance (local).<br>
+3. Audit logging executes synchronously within the same transaction. If audit write fails, the business transaction is still committed and a system-level error is logged to console.<br>
+4. No external messaging (SMS/email) in prototype — triggers are logged only.<br>
+5. RBAC enforced at application router level (app.py) on every page load — not at DB level in prototype.
+</div>
+
+<div style="background:#FFF2CC;border-left:4px solid #BF8F00;padding:10px 16px;margin-bottom:16px;font-size:12px;border-radius:4px;">
+<strong style="color:#1F4E79;">Future Integration Placeholders</strong> — not in prototype scope:<br>
+&nbsp;&nbsp;📧 <strong>SMS/Email Gateway</strong> — appointment confirmation trigger point: after SQD-03 Step 12<br>
+&nbsp;&nbsp;🔬 <strong>Laboratory Information System (LIS)</strong> — investigation order dispatch: after SQD-04 Step 12<br>
+&nbsp;&nbsp;🏥 <strong>ABDM / FHIR Interface</strong> — patient record sync: after SQD-02 Step 9<br>
+&nbsp;&nbsp;🔐 <strong>Enterprise IdP (LDAP/AD)</strong> — replace local auth: SQD-01 Step 2 onwards
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>SQD-01: User Login</h2>
+<svg viewBox="0 0 900 480" width="900" height="480" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="a1" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L10,4z" fill="#1F4E79"/></marker>
+  <marker id="a2" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L10,4z" fill="#375623"/></marker>
+  <marker id="a3" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L10,4z" fill="#C55A11"/></marker>
+</defs>
+<!-- Actors -->
+<rect x="30" y="10" width="100" height="34" rx="6" fill="#1F4E79"/><text x="80" y="32" text-anchor="middle" font-size="12" font-weight="bold" fill="white">User</text>
+<rect x="190" y="10" width="140" height="34" rx="6" fill="#2E75B6"/><text x="260" y="32" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Streamlit UI</text>
+<rect x="390" y="10" width="130" height="34" rx="6" fill="#375623"/><text x="455" y="32" text-anchor="middle" font-size="12" font-weight="bold" fill="white">auth.py</text>
+<rect x="580" y="10" width="130" height="34" rx="6" fill="#7030A0"/><text x="645" y="32" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Data Access Layer</text>
+<rect x="760" y="10" width="120" height="34" rx="6" fill="#404040"/><text x="820" y="32" text-anchor="middle" font-size="12" font-weight="bold" fill="white">audit_log</text>
+
+<!-- Lifelines -->
+<line x1="80" y1="44" x2="80" y2="470" stroke="#1F4E79" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="260" y1="44" x2="260" y2="470" stroke="#2E75B6" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="455" y1="44" x2="455" y2="470" stroke="#375623" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="645" y1="44" x2="645" y2="470" stroke="#7030A0" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="820" y1="44" x2="820" y2="470" stroke="#404040" stroke-width="1.5" stroke-dasharray="6,3"/>
+
+<!-- Step 1 -->
+<line x1="80" y1="80" x2="250" y2="80" stroke="#1F4E79" stroke-width="1.8" marker-end="url(#a1)"/>
+<text x="165" y="74" text-anchor="middle" font-size="11" fill="#1F4E79">1. Enter username + password</text>
+
+<!-- Step 2 -->
+<line x1="260" y1="110" x2="445" y2="110" stroke="#2E75B6" stroke-width="1.8" marker-end="url(#a2)"/>
+<text x="352" y="104" text-anchor="middle" font-size="11" fill="#2E75B6">2. validate_login(username, password)</text>
+
+<!-- Step 3 -->
+<line x1="455" y1="140" x2="635" y2="140" stroke="#375623" stroke-width="1.8" marker-end="url(#a2)"/>
+<text x="545" y="134" text-anchor="middle" font-size="11" fill="#375623">3. get_user_by_username()</text>
+
+<!-- Step 4 — return -->
+<line x1="635" y1="165" x2="465" y2="165" stroke="#7030A0" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#a3)"/>
+<text x="550" y="159" text-anchor="middle" font-size="11" fill="#7030A0">4. return user record</text>
+
+<!-- Step 5 -->
+<rect x="430" y="175" width="50" height="20" rx="3" fill="#E2F0D9" stroke="#375623"/>
+<text x="455" y="189" text-anchor="middle" font-size="10" fill="#375623">bcrypt</text>
+<text x="455" y="210" text-anchor="middle" font-size="10" fill="#375623">checkpw()</text>
+
+<!-- Step 6 — valid path -->
+<rect x="15" y="228" width="860" height="16" rx="3" fill="#E2F0D9" opacity="0.5"/>
+<text x="440" y="240" text-anchor="middle" font-size="10" fill="#375623" font-weight="bold">ALT [credentials valid + account Active]</text>
+
+<line x1="455" y1="254" x2="635" y2="254" stroke="#375623" stroke-width="1.8" marker-end="url(#a2)"/>
+<text x="545" y="248" text-anchor="middle" font-size="11" fill="#375623">5. write_audit(LOGIN, Success)</text>
+
+<line x1="455" y1="278" x2="270" y2="278" stroke="#375623" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#a1)"/>
+<text x="362" y="272" text-anchor="middle" font-size="11" fill="#375623">6. create session_state (user_id, role)</text>
+
+<line x1="260" y1="302" x2="90" y2="302" stroke="#2E75B6" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#a1)"/>
+<text x="175" y="296" text-anchor="middle" font-size="11" fill="#2E75B6">7. render role-specific home module</text>
+
+<!-- Step 8 — failed path -->
+<rect x="15" y="318" width="860" height="16" rx="3" fill="#FCE4D6" opacity="0.5"/>
+<text x="440" y="330" text-anchor="middle" font-size="10" fill="#C55A11" font-weight="bold">ALT [invalid credentials]</text>
+
+<line x1="455" y1="344" x2="635" y2="344" stroke="#C55A11" stroke-width="1.8" marker-end="url(#a3)"/>
+<text x="545" y="338" text-anchor="middle" font-size="11" fill="#C55A11">8. increment failed_login_count</text>
+
+<line x1="455" y1="368" x2="270" y2="368" stroke="#C55A11" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#a1)"/>
+<text x="362" y="362" text-anchor="middle" font-size="11" fill="#C55A11">9. display error message</text>
+
+<!-- Step 9 — lockout -->
+<rect x="15" y="383" width="860" height="16" rx="3" fill="#FCE4D6" opacity="0.5"/>
+<text x="440" y="395" text-anchor="middle" font-size="10" fill="#C55A11" font-weight="bold">ALT [failed_count = 3]</text>
+
+<line x1="455" y1="410" x2="635" y2="410" stroke="#C55A11" stroke-width="1.8" marker-end="url(#a3)"/>
+<text x="545" y="404" text-anchor="middle" font-size="11" fill="#C55A11">10. set account_status=Locked</text>
+
+<line x1="645" y1="430" x2="810" y2="430" stroke="#404040" stroke-width="1.8" marker-end="url(#a2)"/>
+<text x="727" y="424" text-anchor="middle" font-size="11" fill="#404040">11. write_audit(LOCK, Failed)</text>
+
+<line x1="455" y1="452" x2="270" y2="452" stroke="#C55A11" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#a1)"/>
+<text x="362" y="446" text-anchor="middle" font-size="11" fill="#C55A11">12. display 'Account locked' message</text>
+</svg>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>SQD-02: Patient Registration</h2>
+<svg viewBox="0 0 900 460" width="900" height="460" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="b1" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L10,4z" fill="#1F4E79"/></marker>
+  <marker id="b2" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L10,4z" fill="#375623"/></marker>
+  <marker id="b3" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L10,4z" fill="#C55A11"/></marker>
+</defs>
+<rect x="10" y="10" width="110" height="34" rx="6" fill="#1F4E79"/><text x="65" y="32" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Receptionist</text>
+<rect x="175" y="10" width="130" height="34" rx="6" fill="#2E75B6"/><text x="240" y="32" text-anchor="middle" font-size="12" font-weight="bold" fill="white">MOD-01 UI</text>
+<rect x="360" y="10" width="140" height="34" rx="6" fill="#375623"/><text x="430" y="32" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Business Logic</text>
+<rect x="555" y="10" width="130" height="34" rx="6" fill="#7030A0"/><text x="620" y="32" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Data Access Layer</text>
+<rect x="740" y="10" width="140" height="34" rx="6" fill="#404040"/><text x="810" y="32" text-anchor="middle" font-size="12" font-weight="bold" fill="white">audit_log</text>
+
+<line x1="65" y1="44" x2="65" y2="450" stroke="#1F4E79" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="240" y1="44" x2="240" y2="450" stroke="#2E75B6" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="430" y1="44" x2="430" y2="450" stroke="#375623" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="620" y1="44" x2="620" y2="450" stroke="#7030A0" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="810" y1="44" x2="810" y2="450" stroke="#404040" stroke-width="1.5" stroke-dasharray="6,3"/>
+
+<line x1="65" y1="80" x2="230" y2="80" stroke="#1F4E79" stroke-width="1.8" marker-end="url(#b1)"/>
+<text x="148" y="74" text-anchor="middle" font-size="11" fill="#1F4E79">1. Complete registration form + consent</text>
+
+<line x1="240" y1="108" x2="420" y2="108" stroke="#2E75B6" stroke-width="1.8" marker-end="url(#b2)"/>
+<text x="330" y="102" text-anchor="middle" font-size="11" fill="#2E75B6">2. validate_form_fields()</text>
+
+<!-- Validation fail alt -->
+<rect x="10" y="120" width="870" height="16" rx="3" fill="#FCE4D6" opacity="0.5"/>
+<text x="440" y="132" text-anchor="middle" font-size="10" fill="#C55A11" font-weight="bold">ALT [validation fails]</text>
+<line x1="430" y1="146" x2="250" y2="146" stroke="#C55A11" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#b1)"/>
+<text x="340" y="140" text-anchor="middle" font-size="11" fill="#C55A11">3a. highlight invalid fields + inline errors</text>
+
+<!-- Normal flow -->
+<rect x="10" y="160" width="870" height="16" rx="3" fill="#E2F0D9" opacity="0.5"/>
+<text x="440" y="172" text-anchor="middle" font-size="10" fill="#375623" font-weight="bold">ALT [validation passes]</text>
+
+<line x1="430" y1="186" x2="610" y2="186" stroke="#375623" stroke-width="1.8" marker-end="url(#b2)"/>
+<text x="520" y="180" text-anchor="middle" font-size="11" fill="#375623">3. duplicate_check(name+dob+mobile)</text>
+
+<!-- Duplicate found -->
+<rect x="10" y="198" width="870" height="16" rx="3" fill="#FFF2CC" opacity="0.6"/>
+<text x="440" y="210" text-anchor="middle" font-size="10" fill="#BF8F00" font-weight="bold">ALT [duplicate found]</text>
+<line x1="620" y1="224" x2="250" y2="224" stroke="#BF8F00" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#b1)"/>
+<text x="435" y="218" text-anchor="middle" font-size="11" fill="#BF8F00">4a. warn: existing Patient ID shown; override option</text>
+
+<!-- No duplicate -->
+<rect x="10" y="238" width="870" height="16" rx="3" fill="#E2F0D9" opacity="0.5"/>
+<text x="440" y="250" text-anchor="middle" font-size="10" fill="#375623" font-weight="bold">ALT [no duplicate]</text>
+
+<line x1="430" y1="264" x2="610" y2="264" stroke="#375623" stroke-width="1.8" marker-end="url(#b2)"/>
+<text x="520" y="258" text-anchor="middle" font-size="11" fill="#375623">4. generate_patient_id(CVH-YYYY-NNNNN)</text>
+
+<line x1="430" y1="290" x2="610" y2="290" stroke="#375623" stroke-width="1.8" marker-end="url(#b2)"/>
+<text x="520" y="284" text-anchor="middle" font-size="11" fill="#375623">5. insert_patient_record()</text>
+
+<line x1="620" y1="314" x2="800" y2="314" stroke="#7030A0" stroke-width="1.8" marker-end="url(#b2)"/>
+<text x="710" y="308" text-anchor="middle" font-size="11" fill="#7030A0">6. write_audit(CREATE, MOD-01)</text>
+
+<line x1="620" y1="338" x2="440" y2="338" stroke="#7030A0" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#b2)"/>
+<text x="530" y="332" text-anchor="middle" font-size="11" fill="#7030A0">7. return patient_id</text>
+
+<line x1="430" y1="362" x2="250" y2="362" stroke="#375623" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#b1)"/>
+<text x="340" y="356" text-anchor="middle" font-size="11" fill="#375623">8. return success + patient_id</text>
+
+<line x1="240" y1="386" x2="75" y2="386" stroke="#2E75B6" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#b1)"/>
+<text x="157" y="380" text-anchor="middle" font-size="11" fill="#2E75B6">9. display success: Patient ID = CVH-YYYY-NNNNN</text>
+
+<!-- DB error -->
+<rect x="10" y="400" width="870" height="16" rx="3" fill="#FCE4D6" opacity="0.5"/>
+<text x="440" y="412" text-anchor="middle" font-size="10" fill="#C55A11" font-weight="bold">ALT [DB error on insert]</text>
+<line x1="620" y1="426" x2="250" y2="426" stroke="#C55A11" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#b1)"/>
+<text x="435" y="420" text-anchor="middle" font-size="11" fill="#C55A11">10. rollback; display 'Service unavailable'</text>
+</svg>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>SQD-03: Appointment Booking</h2>
+<svg viewBox="0 0 920 440" width="920" height="440" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="c1" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L10,4z" fill="#1F4E79"/></marker>
+  <marker id="c2" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L10,4z" fill="#375623"/></marker>
+  <marker id="c3" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L10,4z" fill="#C55A11"/></marker>
+</defs>
+<rect x="10" y="10" width="110" height="34" rx="6" fill="#1F4E79"/><text x="65" y="32" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Receptionist</text>
+<rect x="175" y="10" width="130" height="34" rx="6" fill="#2E75B6"/><text x="240" y="32" text-anchor="middle" font-size="12" font-weight="bold" fill="white">MOD-02 UI</text>
+<rect x="360" y="10" width="140" height="34" rx="6" fill="#375623"/><text x="430" y="32" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Business Logic</text>
+<rect x="555" y="10" width="130" height="34" rx="6" fill="#7030A0"/><text x="620" y="32" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Data Access Layer</text>
+<rect x="740" y="10" width="160" height="34" rx="6" fill="#404040"/><text x="820" y="32" text-anchor="middle" font-size="12" font-weight="bold" fill="white">audit_log</text>
+
+<line x1="65" y1="44" x2="65" y2="430" stroke="#1F4E79" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="240" y1="44" x2="240" y2="430" stroke="#2E75B6" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="430" y1="44" x2="430" y2="430" stroke="#375623" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="620" y1="44" x2="620" y2="430" stroke="#7030A0" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="820" y1="44" x2="820" y2="430" stroke="#404040" stroke-width="1.5" stroke-dasharray="6,3"/>
+
+<line x1="65" y1="80" x2="230" y2="80" stroke="#1F4E79" stroke-width="1.8" marker-end="url(#c1)"/>
+<text x="148" y="74" text-anchor="middle" font-size="11" fill="#1F4E79">1. Search patient + select doctor + date</text>
+
+<line x1="240" y1="108" x2="420" y2="108" stroke="#2E75B6" stroke-width="1.8" marker-end="url(#c2)"/>
+<text x="330" y="102" text-anchor="middle" font-size="11" fill="#2E75B6">2. get_available_slots(doctor, date)</text>
+
+<line x1="430" y1="130" x2="610" y2="130" stroke="#375623" stroke-width="1.8" marker-end="url(#c2)"/>
+<text x="520" y="124" text-anchor="middle" font-size="11" fill="#375623">3. query slots excluding booked + holidays</text>
+
+<line x1="620" y1="152" x2="440" y2="152" stroke="#7030A0" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#c2)"/>
+<text x="530" y="146" text-anchor="middle" font-size="11" fill="#7030A0">4. return available 20-min slots</text>
+
+<line x1="430" y1="172" x2="250" y2="172" stroke="#375623" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#c1)"/>
+<text x="340" y="166" text-anchor="middle" font-size="11" fill="#375623">5. render slot picker + visit_type dropdown</text>
+
+<line x1="65" y1="196" x2="230" y2="196" stroke="#1F4E79" stroke-width="1.8" marker-end="url(#c1)"/>
+<text x="148" y="190" text-anchor="middle" font-size="11" fill="#1F4E79">6. select slot + visit_type; submit</text>
+
+<line x1="240" y1="220" x2="420" y2="220" stroke="#2E75B6" stroke-width="1.8" marker-end="url(#c2)"/>
+<text x="330" y="214" text-anchor="middle" font-size="11" fill="#2E75B6">7. conflict_check(doctor, date, time)</text>
+
+<!-- Conflict found -->
+<rect x="10" y="232" width="880" height="16" rx="3" fill="#FCE4D6" opacity="0.5"/>
+<text x="440" y="244" text-anchor="middle" font-size="10" fill="#C55A11" font-weight="bold">ALT [conflict detected]</text>
+<line x1="430" y1="258" x2="250" y2="258" stroke="#C55A11" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#c1)"/>
+<text x="340" y="252" text-anchor="middle" font-size="11" fill="#C55A11">8a. display 'Slot already booked'</text>
+
+<!-- No conflict -->
+<rect x="10" y="272" width="880" height="16" rx="3" fill="#E2F0D9" opacity="0.5"/>
+<text x="440" y="284" text-anchor="middle" font-size="10" fill="#375623" font-weight="bold">ALT [no conflict]</text>
+
+<line x1="430" y1="298" x2="610" y2="298" stroke="#375623" stroke-width="1.8" marker-end="url(#c2)"/>
+<text x="520" y="292" text-anchor="middle" font-size="11" fill="#375623">8. check_doctor_daily_max()</text>
+
+<line x1="430" y1="322" x2="610" y2="322" stroke="#375623" stroke-width="1.8" marker-end="url(#c2)"/>
+<text x="520" y="316" text-anchor="middle" font-size="11" fill="#375623">9. insert_appointment(status=Scheduled)</text>
+
+<line x1="620" y1="344" x2="810" y2="344" stroke="#7030A0" stroke-width="1.8" marker-end="url(#c2)"/>
+<text x="714" y="338" text-anchor="middle" font-size="11" fill="#7030A0">10. write_audit(CREATE, MOD-02)</text>
+
+<line x1="620" y1="366" x2="440" y2="366" stroke="#7030A0" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#c2)"/>
+<text x="530" y="360" text-anchor="middle" font-size="11" fill="#7030A0">11. return APT-YYYY-NNNNN</text>
+
+<line x1="430" y1="390" x2="250" y2="390" stroke="#375623" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#c1)"/>
+<text x="340" y="384" text-anchor="middle" font-size="11" fill="#375623">12. show confirmation</text>
+
+<line x1="240" y1="412" x2="75" y2="412" stroke="#2E75B6" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#c1)"/>
+<text x="157" y="406" text-anchor="middle" font-size="11" fill="#2E75B6">13. display Appointment ID + time slot</text>
+</svg>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>SQD-04: Consultation &amp; Prescription</h2>
+<svg viewBox="0 0 960 480" width="960" height="480" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="d1" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L10,4z" fill="#1F4E79"/></marker>
+  <marker id="d2" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L10,4z" fill="#375623"/></marker>
+  <marker id="d3" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L10,4z" fill="#C55A11"/></marker>
+</defs>
+<rect x="10" y="10" width="90" height="34" rx="6" fill="#1F4E79"/><text x="55" y="32" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Doctor</text>
+<rect x="155" y="10" width="130" height="34" rx="6" fill="#2E75B6"/><text x="220" y="32" text-anchor="middle" font-size="12" font-weight="bold" fill="white">MOD-03 UI</text>
+<rect x="340" y="10" width="140" height="34" rx="6" fill="#375623"/><text x="410" y="32" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Business Logic</text>
+<rect x="535" y="10" width="130" height="34" rx="6" fill="#7030A0"/><text x="600" y="32" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Data Access Layer</text>
+<rect x="720" y="10" width="90" height="34" rx="6" fill="#C55A11"/><text x="765" y="32" text-anchor="middle" font-size="11" font-weight="bold" fill="white">MOD-04</text>
+<rect x="860" y="10" width="90" height="34" rx="6" fill="#404040"/><text x="905" y="32" text-anchor="middle" font-size="11" font-weight="bold" fill="white">audit_log</text>
+
+<line x1="55" y1="44" x2="55" y2="470" stroke="#1F4E79" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="220" y1="44" x2="220" y2="470" stroke="#2E75B6" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="410" y1="44" x2="410" y2="470" stroke="#375623" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="600" y1="44" x2="600" y2="470" stroke="#7030A0" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="765" y1="44" x2="765" y2="470" stroke="#C55A11" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="905" y1="44" x2="905" y2="470" stroke="#404040" stroke-width="1.5" stroke-dasharray="6,3"/>
+
+<line x1="55" y1="78" x2="210" y2="78" stroke="#1F4E79" stroke-width="1.8" marker-end="url(#d1)"/>
+<text x="132" y="72" text-anchor="middle" font-size="11" fill="#1F4E79">1. Login; view today's schedule</text>
+
+<line x1="55" y1="102" x2="210" y2="102" stroke="#1F4E79" stroke-width="1.8" marker-end="url(#d1)"/>
+<text x="132" y="96" text-anchor="middle" font-size="11" fill="#1F4E79">2. Open patient card (In-Progress appt)</text>
+
+<line x1="220" y1="124" x2="400" y2="124" stroke="#2E75B6" stroke-width="1.8" marker-end="url(#d2)"/>
+<text x="310" y="118" text-anchor="middle" font-size="11" fill="#2E75B6">3. get_patient_record() + get_vitals()</text>
+
+<line x1="410" y1="146" x2="590" y2="146" stroke="#375623" stroke-width="1.8" marker-end="url(#d2)"/>
+<text x="500" y="140" text-anchor="middle" font-size="11" fill="#375623">4. fetch patient + vitals from MOD-04</text>
+
+<line x1="600" y1="168" x2="230" y2="168" stroke="#7030A0" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#d1)"/>
+<text x="415" y="162" text-anchor="middle" font-size="11" fill="#7030A0">5. return demographics + vitals + history</text>
+
+<!-- No vitals warning -->
+<rect x="10" y="180" width="920" height="16" rx="3" fill="#FFF2CC" opacity="0.6"/>
+<text x="460" y="192" text-anchor="middle" font-size="10" fill="#BF8F00" font-weight="bold">ALT [vitals not recorded] → show advisory warning; doctor may proceed</text>
+
+<line x1="55" y1="208" x2="210" y2="208" stroke="#1F4E79" stroke-width="1.8" marker-end="url(#d1)"/>
+<text x="132" y="202" text-anchor="middle" font-size="11" fill="#1F4E79">6. Enter consultation note + save</text>
+
+<line x1="220" y1="230" x2="400" y2="230" stroke="#2E75B6" stroke-width="1.8" marker-end="url(#d2)"/>
+<text x="310" y="224" text-anchor="middle" font-size="11" fill="#2E75B6">7. validate + check is_editable flag</text>
+
+<line x1="410" y1="252" x2="590" y2="252" stroke="#375623" stroke-width="1.8" marker-end="url(#d2)"/>
+<text x="500" y="246" text-anchor="middle" font-size="11" fill="#375623">8. insert_consultation(); set is_editable=1</text>
+
+<line x1="600" y1="274" x2="890" y2="274" stroke="#7030A0" stroke-width="1.8" marker-end="url(#d2)"/>
+<text x="744" y="268" text-anchor="middle" font-size="11" fill="#7030A0">9. write_audit(CREATE, MOD-03)</text>
+
+<line x1="55" y1="298" x2="210" y2="298" stroke="#1F4E79" stroke-width="1.8" marker-end="url(#d1)"/>
+<text x="132" y="292" text-anchor="middle" font-size="11" fill="#1F4E79">10. Add prescription lines + save</text>
+
+<!-- Prescription without consultation block -->
+<rect x="10" y="310" width="920" height="16" rx="3" fill="#FCE4D6" opacity="0.5"/>
+<text x="460" y="322" text-anchor="middle" font-size="10" fill="#C55A11" font-weight="bold">ALT [consultation not saved] → block prescription; display error</text>
+
+<line x1="220" y1="338" x2="400" y2="338" stroke="#2E75B6" stroke-width="1.8" marker-end="url(#d2)"/>
+<text x="310" y="332" text-anchor="middle" font-size="11" fill="#2E75B6">11. link_prescription(consultation_id)</text>
+
+<line x1="410" y1="360" x2="590" y2="360" stroke="#375623" stroke-width="1.8" marker-end="url(#d2)"/>
+<text x="500" y="354" text-anchor="middle" font-size="11" fill="#375623">12. insert_prescription()</text>
+
+<line x1="55" y1="384" x2="210" y2="384" stroke="#1F4E79" stroke-width="1.8" marker-end="url(#d1)"/>
+<text x="132" y="378" text-anchor="middle" font-size="11" fill="#1F4E79">13. Click 'Complete Consultation'</text>
+
+<line x1="220" y1="406" x2="400" y2="406" stroke="#2E75B6" stroke-width="1.8" marker-end="url(#d2)"/>
+<text x="310" y="400" text-anchor="middle" font-size="11" fill="#2E75B6">14. update_status(Completed)</text>
+
+<line x1="410" y1="428" x2="590" y2="428" stroke="#375623" stroke-width="1.8" marker-end="url(#d2)"/>
+<text x="500" y="422" text-anchor="middle" font-size="11" fill="#375623">15. write_audit(UPDATE, MOD-03)</text>
+
+<line x1="600" y1="450" x2="65" y2="450" stroke="#7030A0" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#d1)"/>
+<text x="332" y="444" text-anchor="middle" font-size="11" fill="#7030A0">16. Appointment = Completed; patient check-out triggered in MOD-05</text>
+</svg>
+
+<p class="disclaimer">CVH-SQD-001 v1.1 | July 2026 | Prashant Gore | PROTOTYPE ONLY — not for production clinical use | All flows reference FRD Use Cases UC-01 to UC-04</p>
+</body></html>
