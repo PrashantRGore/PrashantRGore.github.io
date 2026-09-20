@@ -47,6 +47,8 @@ nav:
     - "06. CR-001 v1.0 — Change Request": business-analysis/cr.md
     - "07. ERD v1.0 — Entity Relationship Diagram": business-analysis/erd.md
     - "08. SQD v1.1 — Sequence Diagrams": business-analysis/sqd.md
+  - AI Governance:           # ← ADD THIS
+    - Overview: ai-governance/index.md
   - About: about/README.md
   - Contact: contact/README.md
 
