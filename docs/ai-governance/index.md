@@ -31,11 +31,38 @@ When engineers tune system prompts or update vector knowledge stores with revise
 
 To prevent engineering gridlock while safeguarding regulatory compliance and patient safety, system adjustments are segregated across three structured risk tiers:
 
-| Change Level | Triggers & Examples | Regulatory Classification | Required Validation Action |
-| --- | --- | --- | --- |
-| **Tier 1: Minor / Operational** | • Adjusting retrieval top-k chunk count<br>• Minor UI context layout changes<br>• Utility helper script patches | Non-substantial modification within expected operational variance. | Automated regression suite execution against a versioned baseline; automatic logging in AI Technical Documentation. |
-| **Tier 2: Intermediate / Semantic Boundary** | • Prompt instructions & persona changes<br>• Updating chunking strategies / embedding models<br>• Refreshing reference datasets (MedDRA, SmPCs)<br>• Modifying retrieval similarity cutoffs | Potential drift or decision boundary shift affecting extraction confidence and reasoning. | Pre-release benchmark evaluation against a versioned ground-truth dataset; targeted regression verification; formal QA and regulatory sign-off. |
-| **Tier 3: Substantial Modification** | • Foundational model replacement (e.g., GPT-4 to a local weights model)<br>• Introducing new agent graph paths<br>• Shifting sign-off authority from human to AI | Substantial Modification under EU AI Act (Art. 3(43) / Art. 43). | Full formal revalidation (IQ/OQ/PQ); Annex IV Technical Documentation update; mandatory Data Protection Impact Assessment (GDPR Art. 35) re-execution. |
+<div class="aig-table-wrapper">
+<table class="aig-change-matrix">
+  <thead>
+    <tr>
+      <th>Change Level</th>
+      <th>Triggers &amp; Examples</th>
+      <th>Regulatory Classification</th>
+      <th>Required Validation Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="aig-tier-1">
+      <td><span class="aig-tier-badge aig-tier-badge--1">Tier 1</span><br><strong>Minor / Operational</strong></td>
+      <td>• Adjusting retrieval top-k chunk count<br>• Minor UI context layout changes<br>• Utility helper script patches</td>
+      <td>Non-substantial modification within expected operational variance.</td>
+      <td>Automated regression suite execution against a versioned baseline; automatic logging in AI Technical Documentation.</td>
+    </tr>
+    <tr class="aig-tier-2">
+      <td><span class="aig-tier-badge aig-tier-badge--2">Tier 2</span><br><strong>Intermediate / Semantic Boundary</strong></td>
+      <td>• Prompt instructions &amp; persona changes<br>• Updating chunking strategies / embedding models<br>• Refreshing reference datasets (MedDRA, SmPCs)<br>• Modifying retrieval similarity cutoffs</td>
+      <td>Potential drift or decision boundary shift affecting extraction confidence and reasoning.</td>
+      <td>Pre-release benchmark evaluation against a versioned ground-truth dataset; targeted regression verification; formal QA and regulatory sign-off.</td>
+    </tr>
+    <tr class="aig-tier-3">
+      <td><span class="aig-tier-badge aig-tier-badge--3">Tier 3</span><br><strong>Substantial Modification</strong></td>
+      <td>• Foundational model replacement (e.g., GPT-4 to a local weights model)<br>• Introducing new agent graph paths<br>• Shifting sign-off authority from human to AI</td>
+      <td>Substantial Modification under EU AI Act (Art. 3(43) / Art. 43).</td>
+      <td>Full formal revalidation (IQ/OQ/PQ); Annex IV Technical Documentation update; mandatory Data Protection Impact Assessment (GDPR Art. 35) re-execution.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 ---
 
