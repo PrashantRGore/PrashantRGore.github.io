@@ -370,10 +370,22 @@
   margin-bottom: 14px;
 }
 
-/* ── Table horizontal scroll — all tables in BA portfolio pages ─── */
-/* Applied via MkDocs native .md-typeset so no HTML wrapper needed  */
+/* ── Table horizontal scroll — BA portfolio pages only ────────────── */
+/* Scoped to BA-specific containers so it doesn't break other tables  */
 
-.md-content__inner table {
+.ba-project-card table,
+.ba-doc-card table,
+.md-typeset .ba-project-card table,
+.md-typeset .ba-doc-card table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  font-size: 0.84rem;
+}
+
+/* Markdown tables that are NOT inside aig-table-wrapper get scroll too */
+.md-content__inner > .md-typeset table:not(.aig-change-matrix) {
   display: block;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -470,9 +482,8 @@
   border-collapse: collapse;
   font-size: 0.875rem;
   line-height: 1.65;
-  /* override the global display:block set for .md-content__inner table */
-  display: table !important;
-  overflow-x: unset !important;
+  display: table;
+  overflow-x: unset;
 }
 
 /* ── Header row ───────────────────────────────────────────────── */
